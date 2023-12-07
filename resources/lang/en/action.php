@@ -17,5 +17,5 @@ return [
         'connection-error' => 'DeepL is taking too long to respond.',
         '429-error' => 'Too many requests. Please try again later.',
         '456-error' => 'Volume exhausted. New translations are only possible again on the 1st of the next month.',
-    ]
+    ],
 ];

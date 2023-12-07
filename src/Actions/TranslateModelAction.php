@@ -58,7 +58,7 @@ class TranslateModelAction
 
             $data = Http::baseUrl('https://api-free.deepl.com/v2')
                 ->withHeaders([
-                    'Authorization' => 'DeepL-Auth-Key ' . $this->getApiKey(),
+                    'Authorization' => 'DeepL-Auth-Key '.$this->getApiKey(),
                 ])
                 ->throw()
                 ->post('/translate', [

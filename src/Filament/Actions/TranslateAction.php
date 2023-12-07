@@ -2,13 +2,13 @@
 
 namespace pxlrbt\FilamentTranslateAction\Filament\Actions;
 
-use Illuminate\Database\Eloquent\Model;
-use pxlrbt\FilamentTranslateAction\Actions\TranslateModelAction;
 use Filament\Actions\Action;
 use Filament\Notifications\Notification;
 use Filament\Pages\Page;
 use Http\Client\Exception\RequestException;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Client\ConnectionException;
+use pxlrbt\FilamentTranslateAction\Actions\TranslateModelAction;
 
 class TranslateAction extends Action
 {
@@ -55,6 +55,7 @@ class TranslateAction extends Action
                 } catch (RequestException|ConnectionException $e) {
                     $this->exception = $e;
                     $this->sendFailureNotification();
+
                     return;
                 }
 
@@ -72,13 +73,13 @@ class TranslateAction extends Action
 
         Notification::make()
             ->title(__('filament-translate-action::action.notifications.error.title'))
-            ->body(match(true) {
+            ->body(match (true) {
                 $e instanceof ConnectionException => __('filament-translate-action::action.notifications.connection-error'),
                 $e instanceof RequestException => match ($e->response->status()) {
                     429 => __('filament-translate-action::action.notifications.429-error'),
                     456 => __('filament-translate-action::action.notifications.456-error'),
                     default => __('filament-translate-action::action.notifications.error.body', [
-                        'reason' => $e->response->reason()
+                        'reason' => $e->response->reason(),
                     ]),
                 }
             })
@@ -93,7 +94,7 @@ class TranslateAction extends Action
         Notification::make()
             ->title(__('filament-translate-action::action.notifications.success.title'))
             ->body(__('filament-translate-action::action.notifications.success.body', [
-                'fields' => count($this->record->getDirty())
+                'fields' => count($this->record->getDirty()),
             ]))
             ->success()
             ->send();
