@@ -17,12 +17,7 @@
 
 Translate your models with a single action click via DeepL.
 
-https://user-images.githubusercontent.com/22632550/159757479-ca9c3f46-7638-4889-98ba-6164e5205509.mp4
-
-
 ## Installation
-
-
 
 ```bash
 composer require pxlrbt/filament-translate-action
