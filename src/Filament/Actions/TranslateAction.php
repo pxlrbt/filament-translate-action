@@ -32,7 +32,6 @@ class TranslateAction extends Action
     {
         $this
             ->icon('heroicon-o-language')
-            ->iconButton()
             ->label(__('filament-translate-action::action.label'))
             ->requiresConfirmation()
             ->hidden(function (Page $livewire, $action) {
