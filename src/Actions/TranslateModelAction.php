@@ -11,8 +11,7 @@ class TranslateModelAction
         private string $sourceLocale,
         private string $targetLocale,
         private string $apiKey,
-    ) {
-    }
+    ) {}
 
     public function __invoke(Model $model): Model
     {
